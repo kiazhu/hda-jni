@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT jstring JNICALL Java_com_hda_hdajni_ndk_hdaJniApi_getLibVersion
   (JNIEnv *, jclass);
 
+/*
+ * Class:     com_hda_hdajni_ndk_hdaJniApi
+ * Method:    getFileLastModifyTime
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_hda_hdajni_ndk_hdaJniApi_getFileLastModifyTime
+  (JNIEnv *, jclass, jstring);
+
 #ifdef __cplusplus
 }
 #endif

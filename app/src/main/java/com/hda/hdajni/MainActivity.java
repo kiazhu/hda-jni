@@ -13,5 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG,"hdaJniAPi level:"+hdaJniApi.getLibVersion());
+        Log.d(TAG,"hdaJniAPi get file create time:"+hdaJniApi.getFileLastModifyTime("/sdcard/test"));
     }
 }
