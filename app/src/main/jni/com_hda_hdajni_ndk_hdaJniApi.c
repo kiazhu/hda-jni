@@ -3,8 +3,13 @@
 //
 #include <sys/stat.h>
 #include <time.h>
+#include <android/log.h>
 
 #include "com_hda_hdajni_ndk_hdaJniApi.h"
+
+#define LOG    "hda-jni-c-code"
+#define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG,__VA_ARGS__)
+#define LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG,__VA_ARGS__)
 
 JNIEXPORT jstring JNICALL Java_com_hda_hdajni_ndk_hdaJniApi_getLibVersion
     (JNIEnv *env, jclass clz){
@@ -23,6 +28,7 @@ JNIEXPORT jstring JNICALL Java_com_hda_hdajni_ndk_hdaJniApi_getFileLastModifyTim
     sprintf(buf, "%04d-%02d-%02d %02d:%02d:%02d",
     t->tm_year+1900, t->tm_mon+1, t->tm_mday,
     t->tm_hour, t->tm_min, t->tm_sec);
+    LOGD("Get files time: %s\n",buf);
 
     return (*env)->NewStringUTF(env, buf);
 }
